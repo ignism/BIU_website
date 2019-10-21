@@ -1,0 +1,17 @@
+<div class="w-full h-full">
+    <div class="relative z-20 text-block-title" style="">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl highlight-wrapper" data-color="{{ color }}" data-background="{{ background }}">
+            {{ title }}
+        </h1>
+    </div>
+    <div class="relative px-5 md:px-10 pt-8 md:pt-16 pb-10 bg-white z-10 md:max-w-md" style="{% if margin_right %}margin-right: {{ margin_right }};{% endif %} {% if margin_left %}margin-left: {{ margin_left }}{% endif %}">
+        {{ text }}
+
+        {% if (bottom_link_url) %}
+            <p class="underline">
+              <a class="text-{{ background }}" href="{{ bottom_link_url }}">{{ bottom_link_text }}</a>
+            </p>
+        {% endif %}
+        
+    </div>
+</div>

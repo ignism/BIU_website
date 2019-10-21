@@ -1,0 +1,20 @@
+<div class="swiper-container relative mt-8 -mx-5 lg:mx-0">
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            <div class="swiper-slide relative" style="height: auto; width: auto;">
+                <a target="_blank" href="{{ slide.link }}">
+                <div style="height: auto; width: auto; background-image:url({{ slide.img_src }}); background-position: center; background-size: cover">
+                    {% include "components/block.twig" with {
+                        orientation: 'square'
+                    } %}
+                </div>
+                <p class="mt-4 text-blue">
+                    {{ slide.caption }}
+                </p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+<div class="swiper-pagination relative lg:absolute pin-b lg:-mb-12 -mx-8 lg:w-5/12"></div>

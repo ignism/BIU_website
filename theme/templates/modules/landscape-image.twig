@@ -1,0 +1,59 @@
+<section class="section relative">
+
+    {% if content.block == "pink" %}
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: "landscape-triple",
+                mobileOrientation: "landscape-double",
+                color: "pink",
+                image: theme.link ~"/assets/Balk_spikkel_roze.png"
+            } %}
+        </div>
+    {% elseif content.block == 'blue' %}
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: "landscape-triple",
+                mobileOrientation: "landscape-double",
+                color: "blue",
+                image: theme.link ~"/assets/Balk_spikkel_blauw.png"
+            } %}
+        </div>
+    {% elseif content.block == 'brown' %}
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: "landscape-triple",
+                mobileOrientation: "landscape-double",
+                color: "brown",
+                image: theme.link ~"/assets/Balk_spikkel_bruin.png"
+            } %}
+        </div>
+    {% elseif content.block == 'yellow' %}
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: "landscape-triple",
+                mobileOrientation: "landscape-double",
+                color: "yellow",
+                image: theme.link ~"/assets/Balk_spikkel_geel.png"
+            } %}
+        </div>
+    {% endif %}
+
+    <div class="row{% if content.block != 'none' %} pt-10 md:pt-16 lg:pt-32{% endif %}">
+
+        <div class="w-full lg:w-10/12 lg:ml-1/12 px-5">
+
+            {% include "components/block.twig" with {
+                orientation : "landscape-double",
+                mobileOrientation : "landscape",
+                color: "grey",
+                image: TimberImage(content.image)
+            } %}
+
+            <div class="px-5 pt-5 text-grey">
+                {{ content.caption }}
+            </div>
+
+        </div>
+
+    </div>
+</section>

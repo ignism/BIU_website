@@ -1,0 +1,49 @@
+<footer id="footer" class="w-full mt-32 py-20 overflow-x-hidden bg-green text-white">
+    <div class="row  lg:pb-10">
+        <div class="px-5 ml-1/12 w-10/12 lg:w-6/12 mb-5">
+            <span class="font-bold lg:text-2xl">Contact</span>
+            <ul class="list-reset lg:text-2xl">
+                <li><a href="mailto:hallo@beamitup.nl" style="color: white">hallo@beamitup.nl</a></li>
+                <li><a href="tel:+31643496284" style="color: white">Liselotte de Groot: +31 (0)6 4349 6284</a></li>
+                <li><a href="tel:+31616482115" style="color: white">Robbert Storm: +31 (0)6 1648 2115</a></li>
+            </ul>
+        </div>
+        <div class="px-5 w-10/12 lg:w-5/12 ml-1/12 lg:ml-0 mb-5">
+            <span class="font-bold lg:text-2xl">Social</span>
+            <ul class="list-reset lg:text-2xl">
+                <li><a class="text-white" href="https://www.instagram.com/BEAMITUP/" target="_blank">Instagram</a></li>
+                <li><a class="text-white" href="https://www.facebook.com/BEAMITUP/" target="_blank">Facebook</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row lg:pb-10">
+        <div class="px-5 ml-1/12 w-10/12 lg:w-6/12 mb-5">
+            <span class="font-bold lg:text-2xl">Locatie</span>
+            <a class="text-white" href="https://goo.gl/maps/vfoDcxt9EyXT4hAr7" target="_blank">
+            <p class="m-0 lg:text-2xl">
+                TAC ruimte 126<br>
+                Gagelstraat 6a<br>
+                5611BH Eindhoven
+            </p>
+            </a>
+        </div>
+        <div class="px-5 w-10/12 lg:w-5/12 ml-1/12 lg:ml-0 flex items-end mb-5">
+            {% if false %}
+            <p class="m-0 lg:text-2xl">
+                <a href="{{ site.link }}/privacy-statement/">Privacy statement</a><br>
+                <a href="{{ site.link }}/algemene-voorwaarden/">Algemene Voorwaarden</a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="px-5 w-10/12 lg:w-5/12 ml-1/12 lg:ml-7/12">
+            <p class="opacity-50 lg:text-2xl">
+                Beam it Up, ©{{ 'now'|date('Y') }}
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ theme.link }}/dist/bundle.js?v=1.0"></script>

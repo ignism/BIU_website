@@ -1,0 +1,241 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="hidden lg:block menu-sticker absolute w-full max-w-5xl  pin-t mx-auto">
+
+      <div class="absolute pin-t pin-l mt-8" style="margin-left: 30%; width: 12%; z-index: 99999">
+        <img src="{{ theme.link }}/assets/paralax/Ballen_blauw_klein.png" alt="">
+      </div>
+
+    </div>
+
+
+    <header>
+        {% include "components/block.twig" with {
+            orientation: 'landscape-double',
+            mobileOrientation: 'square',
+            color: 'grey-dark',
+            image: TimberImage(page.meta('header_image')).src('large')
+        } %}
+    </header>
+
+    <section class="section relative" style="margin-top: -16rem">      
+        <div class="row">
+
+            <div class="px-5 w-full lg:w-6/12 lg:ml-5/12">
+
+                {% include "partials/text-block.twig" with {
+                    title: 'Wat <br>wij vinden',
+                    color: 'yellow',
+                    background: 'blue',
+                    text: page.meta('visie_en_missie')
+                } %}
+
+            </div>
+
+            <div class="hidden lg:block w-4/12 z-10 absolute -mb-20 lg:mb-0 pin-b pin-l" style="margin-left: -10%;">
+                {% include "components/planet.twig" with {
+                    image : "roze_rode_vlek"
+                } %}
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section relative">
+        <div class="row">
+
+            <div class="px-5 w-full lg:w-6/12 lg:ml-1/12">
+
+                {% include "partials/text-block.twig" with {
+                    title: 'Hoe wij<br> werken',
+                    color: 'yellow',
+                    background: 'green',
+                    text: page.meta('hoe_wij_graag_werken')
+                } %}
+
+            </div>
+
+        </div>
+
+        <div class="absolute w-6/12 pin-t pin-r paralax-wrapper">
+            <div class="paralax">
+                <img src="{{ theme.link }}/assets/paralax/Knipsels_blauw.png" alt="">
+            </div>
+        </div>
+
+        <div class="lg:-mt-48" style="">
+            {% include "components/block.twig" with {
+                orientation: 'landscape-double',
+                mobileOrientation: 'landscape',
+                color: 'grey-dark',
+                image: TimberImage(page.meta('fw_image')).src('large')
+            } %}
+        </div>
+    </section>
+
+    <section class="w-full px-5 md:px-10 lg:px-0 lg:my-32 relative">
+        <div class="absolute pin w-full">
+            {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'yellow',
+                image: theme.link~'/assets/Balk_spikkel_geel.png'
+            } %}
+        </div>
+
+        <div class="row pt-10 lg:pt-16">
+            <div class="px-5 w-full lg:w-10/12 lg:ml-1/12">
+                <h1 class="highlight-wrapper text-3xl md:text-4xl lg:text-5xl mb-10" data-color="yellow" data-background="blue">
+                    Wie we zijn
+                </h1>
+            </div>
+        </div>
+        <div class="row relative z-10">
+            <div class="px-5 w-10/12 lg:w-4/12 ml-1/12">
+                {% include "components/member.twig" with {
+                    color : "transparent",
+                    image: TimberImage(page.meta("team").left.image).src('large'),
+                    name: page.meta("team").left.name,
+                    role: page.meta("team").left.title,
+                    contact: page.meta("team").left.contact
+                } %}
+            </div>
+            <div class="px-5 w-10/12 lg:w-4/12 ml-1/12 lg:ml-2/12 mt-2/12 lg:mt-1/12">
+                {% include "components/member.twig" with {
+                    color : "transparent",
+                    image: TimberImage(page.meta("team").right.image).src('large'),
+                    name: page.meta("team").right.name,
+                    role: page.meta("team").right.title,
+                    contact: page.meta("team").right.contact
+                } %}
+            </div>
+        </div>
+
+    </section>
+
+    <section class="w-full px-5 md:px-10 lg:px-0 lg:my-32 relative">
+        <div class="w-5/12 lg:w-4/12 absolute pin-b pin-l" style="margin-left: -20%;">
+            {% include "components/planet.twig" with {
+                image : "bruin_roze_streep"
+            } %}
+        </div>
+        <div class="relative w-full">
+            <div class="row">
+                <div class="px-5 w-10/12 lg:w-6/12 ml-1/12 mt-1/12 lg:mt-0 flex flex-wrap">
+                    {% for other in page.meta("team").others %}
+                        <div class="w-full lg:w-6/12 lg:mb-1/12 mt-1/12 lg:mt-0 {% if loop.index0 % 2 != 0 %}lg:ml-4/12{% else %}lg:ml-2/12{% endif %}">
+
+                            {% include "components/member.twig" with {
+                                color : "transparent",
+                                name: other.name,
+                                role: other.title,
+                                image: TimberImage(other.image).src('large')
+                            } %}
+
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="px-5 w-10/12 ml-1/12 lg:w-4/12 lg:ml-0 font-bold text-blue text-xl md:text-5xl text-right">
+                    Wat we zijn:
+                    <p class="highlight-wrapper text-xl md:text-5xl" data-color="blue" data-background="yellow">
+                        {{ page.meta('we_are_list') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full px-5 md:px-10 lg:px-0 mt-32 lg:my-32 relative">
+        <div class="absolute pin w-full">
+            {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'blue-dark',
+                image: theme.link~'/assets/Balk_spikkel_blauw_donker.png'
+            } %}
+        </div>
+        <div class="row pt-10 lg:pt-16">
+            <div class="px-5 pb-5 w-full lg:w-10/12 lg:ml-1/12">
+                <h1 class="highlight-wrapper text-3xl md:text-4xl lg:text-5xl z-20 relative" data-color="blue-dark" data-background="pink">Wij werken<br>graag samen</h1>
+            </div>
+
+            <div class="px-5 w-full lg:w-10/12 lg:ml-1/12 z-10 text-lg md:text-xl lg:text-2xl" style="margin-top: -2.3em;">
+                <div class="w-full text-2xl bg-white">
+                    {% include "components/block.twig" with {
+                        orientation : "landscape",
+                        color: "white",
+                        image: TimberImage(page.meta("collaborations")).src('large'),
+                        bg_size: "contain"
+                    } %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if page.meta('slider_kleuren_combinatie') == "combo_three" %}
+        {% set color_text = 'yellow' %}
+        {% set color_background = 'green' %}
+        {% elseif page.meta('slider_kleuren_combinatie') == "combo_two" %}
+        {% set color_text = 'red' %}
+        {% set color_background = 'pink' %}
+        {% else %}
+        {% set color_text = 'blue' %}
+        {% set color_background = 'yellow' %}
+        {% endif %}
+
+    <section class="section">
+        {% include "components/slider.twig" with {
+            slides: page.meta('slider'), 
+            width: "",
+            height: "",
+            pagination: true,
+            color: {
+              text: color_text,
+              background: color_background
+            }
+        } %}
+    </section>
+
+    <section class="section relative">
+        <div class="row text-xl">
+            <div class="px-5 lg:ml-1/12 w-full lg:w-10/12">
+
+                <div class="block-outer">
+                    <div class="block-inner landscape-footer mobile-landscape">
+                        <div class="content bg-yellow flex items-center justify-center" style="background-image: url({{ theme.link }}/assets/Balk_contact_geel.png)">
+                            <div class="text-red font-bold flex flex-col items-start justify-center">
+                                <p class="text-2xl md:text-4xl xl:text-5xl">
+                                    {% include "components/highlight.twig" with {
+                                        text : page.meta("footer"),
+                                        color: "red",
+                                        background: "pink"
+                                    } %}
+                                </p>
+                                <p class="hover-up text-2xl md:text-4xl xl:text-5xl">
+                                    <a class="text-red" href="mailto:hallo@beamitup.nl">
+                                        {% include "components/highlight.twig" with {
+                                            text : "hallo@beamitup.nl",
+                                            color: "red",
+                                            background: "pink"
+                                        } %}
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-3/12 lg:w-2/12 absolute pin-b pin-r" style="margin-right: 8%; margin-bottom: -20%">
+            {% include "components/planet.twig" with {
+                image : "blauw_geel_vlek"
+            } %}
+        </div>
+    </section>
+
+
+{% endblock %}

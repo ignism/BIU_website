@@ -1,0 +1,352 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="hidden lg:block menu-sticker absolute w-full max-w-5xl  pin-t mx-auto">
+
+      <div class="absolute pin-t pin-l w-1/12 ml-4/12 mt-12" style="z-index: 99999">
+        {% include "components/planet.twig" with {
+          disableParalax: true,
+          image: 'rood_blauw_verf'
+        } %}
+      </div>
+
+    </div>
+
+
+  <header>
+    {% include "components/block.twig" with {
+            orientation: 'landscape-double',
+            mobileOrientation: 'square',
+            color: 'grey-dark',
+            image: TimberImage(page.meta('header_image')).src('large')
+        } %}
+  </header>
+
+  <section class="section relative pull-up" style="">
+
+    <div class="w-4/12 absolute pin-t pin-r z-10" style="margin-left:-5%; margin-top: -15% ">
+      {% include "components/paralax.twig" with {
+        image : "Strepen_geel"
+      } %}
+    </div>
+
+    <div class="row">
+      <div class="px-5 w-full lg:w-6/12 lg:ml-5/12">
+        {% include "partials/text-block.twig" with {
+                    title: 'Wat we doen',
+                    color: 'yellow',
+                    background: 'blue',
+                    text: page.meta('header_text')
+                } %}
+      </div>
+    </div>
+  </section>
+
+  <section id="workshops" class="section relative">
+    <div class="absolute pin">
+      {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'yellow',
+                image: theme.link ~ '/assets/Balk_spikkel_geel.png'
+            } %}
+    </div>
+
+    <div class="row pt-10 lg:pt-16">
+
+      <div class="px-5 w-full lg:w-6/12 lg:ml-1/12 xl:ml-2/12 lg:max-w-md mr-0 ml-auto">
+
+        {% include "partials/text-block.twig" with {
+                    title: 'Workshops',
+                    color: 'yellow',
+                    background: 'green',
+                    text: page.meta('workshops').text,
+                    bottom_link_text: 'Naar projecten',
+                    bottom_link_url: site.link  ~ '/projecten/#workshops'
+                } %}
+
+      </div>
+
+      <div class="paralax-wrapper px-5 w-10/12 ml-1/12 lg:w-4/12 lg:ml-0 lg:mt-20">
+        <div class="paralax reverse">
+
+          {% set object = page
+            .meta("workshops")
+            .project %}
+          {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation: 'landscape',
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+
+        </div>
+      </div>
+
+    </div>
+
+    {# EYES ON PLANET #}
+    <div class=" hidden lg:block w-32 relative pin-b pin-l -z-10" style="margin-left:25%; margin-top: -5%">
+      <div class="block-outer">
+        <div class="block-inner square">
+          <div class="content">
+            <div class="planet rounded-full" style="background-image: url({{ theme.link }}/assets/planets/Bal_groen_blauw_streep_oogjes.png)"></div>
+            <div class="eye absolute h-6 w-6 rounded-full pin-t pin-l" style="margin-left: 50px; margin-top: 30px" data-width="5" data-height="7">
+              <img src="{{ theme.link }}/assets/planets/oog_2_links.svg" alt="">
+            </div>
+            <div class="eye absolute h-6 w-6 rounded-full pin-t pin-l" style="margin-left: 95px; margin-top: 30px" data-width="5" data-height="5">
+              <img src="{{ theme.link }}/assets/planets/oog_2_rechts.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="educatieve-programmas" class="section lg:pb-32 relative">
+  <div class="w-4/12 absolute pin-b pin-r z-10" style="margin-bottom: -10%">
+    {% include "components/paralax.twig" with {
+      image : "Ballen_rood"
+    } %}
+  </div>
+
+  <div class="absolute pin">
+    {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'pink',
+                image: theme.link ~ '/assets/Balk_spikkel_roze.png'
+            } %}
+  </div>
+
+  <div class="row pt-10 lg:pt-16">
+
+    <div class="paralax-wrapper hidden lg:block px-5 w-10/12 ml-1/12 lg:w-4/12 lg:mt-20">
+      <div class="paralax reverse">
+        {% set object = page
+          .meta("educatieve_programmas")
+          .project %}
+        {% include "components/link-block.twig" with {
+          orientation : "portrait",
+          mobileOrientation: 'landscape',
+          thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+          title: object.title,
+          subtitle: object.meta('header').subtitle,
+          category: object.category.slug,
+          link: object.link
+        } %}
+      </div>
+    </div>
+
+    <div class="px-5 w-full lg:w-6/12">
+
+      {% include "partials/text-block.twig" with {
+        title: 'Educatieve<br>programma\'s',
+        color: 'yellow',
+        background: 'purple',
+        text: page.meta('educatieve_programmas').text,
+        bottom_link_text: 'Naar projecten',
+        bottom_link_url: site.link  ~ '/projecten/#educatieve-programmas'
+      } %}
+
+    </div>
+
+      <div class="lg:hidden px-5 w-10/12 ml-1/12 lg:w-4/12 lg:ml-0 lg:mt-20">
+
+          {% include "components/link-block.twig" with {
+              orientation : "portrait",
+              mobileOrientation: 'landscape',
+              thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+              title: object.title,
+              subtitle: object.meta('header').subtitle,
+              category: object.category.slug,
+              link: object.link
+          } %}
+
+      </div>
+
+        </div>
+    </section>
+
+    <section  id="onderwijs-ondersteuning" class="section relative">
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'blue',
+                image: theme.link ~ '/assets/Balk_spikkel_blauw.png'
+            } %}
+        </div>
+
+        <div class="row pt-10 lg:pt-16">
+
+            <div class="px-5 w-full lg:w-6/12 lg:ml-1/12 xl:ml-2/12 lg:max-w-md mr-0 ml-auto">
+
+                {% include "partials/text-block.twig" with {
+                    title: 'Onderwijs-<br>ondersteuning',
+                    color: 'yellow',
+                    background: 'brown',
+                    text: page.meta('onderwijs_ondersteuning').text,
+                    bottom_link_text: 'Naar projecten',
+                    bottom_link_url: site.link  ~ '/projecten/#onderwijs-ondersteuning'
+                } %}
+
+            </div>
+
+            <div class="paralax-wrapper px-5 w-10/12 ml-1/12 lg:w-4/12 lg:ml-0 lg:mt-20">
+  <div class="paralax reverse">
+                {% set object = page.meta('onderwijs_ondersteuning').project %}
+                {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation: 'landscape',
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+  </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section  id="software" class="section relative pb-16 lg:pb-32">
+
+        <div class="absolute pin">
+            {% include "components/block.twig" with {
+                orientation: 'landscape-triple',
+                mobileOrientation: 'landscape-double',
+                color: 'brown',
+                image: theme.link ~ '/assets/Balk_spikkel_bruin.png'
+            } %}
+        </div>
+
+        <div class="row pt-10 lg:pt-16">
+
+            <div class="paralax-wrapper hidden lg:block px-5 w-10/12 ml-1/12 lg:w-4/12">
+<div class="paralax reverse">
+                {% set object = page.meta('software').project %}
+                {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation: 'landscape',
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+</div>
+
+            </div>
+
+            <div class="px-5 w-full lg:w-6/12">
+
+                {% include "partials/text-block.twig" with {
+                    title: 'Software',
+                    color: 'yellow',
+                    background: 'blue',
+                    text: page.meta('software').text,
+                    bottom_link_text: 'Naar projecten',
+                    bottom_link_url: site.link  ~ '/projecten/#software'
+                } %}
+
+            </div>
+
+            <div class="lg:hidden px-5 w-10/12 ml-1/12 lg:w-4/12 lg:ml-0 lg:mt-20">
+
+                {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation: 'landscape',
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section relative">
+        <div class="w-5/12 absolute pin-t pin-r -z-10" style="margin-top: -20%; margin-right: -10%">
+            {% include "components/planet.twig" with {
+                image : "roze_gelespikkel"
+            } %}
+        </div> 
+
+        {% if page.meta('slider_kleuren_combinatie') == "combo_three" %}
+        {% set color_text = 'yellow' %}
+        {% set color_background = 'green' %}
+        {% elseif page.meta('slider_kleuren_combinatie') == "combo_two" %}
+        {% set color_text = 'red' %}
+        {% set color_background = 'pink' %}
+        {% else %}
+        {% set color_text = 'blue' %}
+        {% set color_background = 'yellow' %}
+        {% endif %}
+
+        {% include "components/slider.twig" with {
+            slides : page.meta('project_slider'),
+            width: "",
+            height: "",
+            pagination: true,
+            color: {
+              text: color_text,
+              background: color_background
+            }
+        } %}
+    </section>
+
+    <section class="section relative">
+
+        <div class="hidden paralax-wrapper lg:block absolute pin-r pin-b w-5/12" style="margin-bottom: -45%; margin-right: -15%;">
+            {% set paralax = theme.link ~ '/assets/paralax/Ballen_geel.png' %}
+            <img class="w-full block paralax" src="{{ paralax }}" alt="">
+        </div>
+
+        <div class="row text-xl">
+            <div class="px-5 lg:ml-1/12 w-full lg:w-10/12">
+
+                <div class="block-outer">
+                    <div class="block-inner landscape-footer mobile-landscape">
+                        <div class="content bg-blue-dark flex items-center justify-center" style="background-image: url({{ theme.link }}/assets/Balk_contact_donker_blauw.png)">
+                            
+                            <div class="text-red font-bold flex flex-col items-start justify-center">
+                                <p class="text-2xl md:text-4xl xl:text-5xl">
+                                    {% include "components/highlight.twig" with {
+                                        text : page.meta("footer"),
+                                        color: "red",
+                                        background: "pink"
+                                    } %}
+                                </p>
+                                <p class="text-2xl md:text-4xl xl:text-5xl hover-up">
+                                    <a class="text-red" href="mailto:hallo@beamitup.nl">
+                                        {% include "components/highlight.twig" with {
+                                            text : "hallo@beamitup.nl",
+                                            color: "red",
+                                            background: "pink"
+                                        } %}
+                                    </a>
+                                </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

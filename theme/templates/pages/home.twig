@@ -1,0 +1,275 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="hidden lg:block menu-sticker absolute w-full max-w-5xl  pin-t mx-auto">
+
+      <div class="absolute pin-t pin-l w-1/12 ml-4/12 mt-16" style="z-index: 99999">
+        {% include "components/planet.twig" with {
+          disableParalax: true,
+          image: 'rood_roze_streep'
+        } %}
+      </div>
+
+    </div>
+
+    <pre>
+    </pre>
+
+    <header class="relative">
+        {% if page.meta('slider_kleuren_combinatie') == "combo_three" %}
+        {% set color_text = 'yellow' %}
+        {% set color_background = 'green' %}
+        {% elseif page.meta('slider_kleuren_combinatie') == "combo_two" %}
+        {% set color_text = 'red' %}
+        {% set color_background = 'pink' %}
+        {% else %}
+        {% set color_text = 'blue' %}
+        {% set color_background = 'yellow' %}
+        {% endif %}
+
+        {% include "components/slider.twig" with {
+            slides : page.meta("header_slider"),
+            width: "",
+            height: "",
+            pagination: true,
+            color: {
+              text: color_text,
+              background: color_background
+            }
+        } %}
+
+        <div class="w-6/12 md:w-5/12 lg:w-4/12 absolute pin-b pin-r z-50" style="margin-right:-16%; margin-bottom: -10%">
+            {% include "components/planet.twig" with {
+                image : "geel_groen_stip"
+            } %}
+        </div>
+    </header>
+
+    <section class="section hero py-10 lg:py-20 relative" style="margin-top: 2.5rem">
+        {% include "partials/hero.twig" with {
+            text : page.meta("quote_1"),
+            color: "blue-dark"
+        } %}
+
+        <div class="w-4/12 paralax-wrapper absolute pin-b pin-l -z-20" style="margin-left:-5%; margin-bottom: -50%">
+            <img class="paralax" src="{{ theme.link }}/assets/paralax/Strooi_bal_blauw.png">
+        </div>
+    </section>
+
+    <section class="section">
+    <div class="max-w-3xl mx-auto">
+        <div class="row">
+            <div class="px-5 w-8/12 md:w-7/12 md:ml-2/12 ml-1/12 lg:w-5/12 h-24 md:h-32 lg:h-40 mb-10 lg:mt-12 lg:ml-1/12 relative">
+                <div class="cta-block-background absolute mx-5 pin z-auto bg-pink" style="background: url({{ theme.link }}/assets/Button_Workshop_structuur.png)"></div>
+                <a class="" href="{{ site.link }}/wat-we-doen/#workshops">
+                    <div class="cta-block absolute mx-5 pin z-auto bg-pink font-bold text-xl md:text-2xl lg:text-4xl">
+                        workshops
+                    </div>
+                </a>
+            </div>
+            <div class="px-5 w-8/12 md:w-7/12 md:ml-3/12 ml-3/12 lg:w-5/12 h-24 md:h-32 lg:h-40 mb-10 lg:mb-12 lg:ml-auto lg:mr-1/12 relative">
+                <div class="cta-block-background absolute mx-5 pin z-auto bg-purple" style="background: url({{ theme.link }}/assets/Button_Educatieve_structuur.png)"></div>
+                <a class="" href="{{ site.link }}/wat-we-doen/#educatieve-programmas">
+                    <div class="cta-block absolute mx-5 pin z-auto bg-purple font-bold text-xl md:text-2xl lg:text-4xl">
+                        educatieve<br>programma's
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="px-5 w-8/12 md:w-7/12 md:ml-2/12 ml-1/12 lg:w-5/12 h-24 md:h-32 lg:h-40 mb-10 lg:mt-12 lg:ml-1/12 relative">
+                <div class="cta-block-background absolute mx-5 pin z-auto bg-yellow" style="background: url({{ theme.link }}/assets/Button_Onderwijs_structuur.png)"></div>
+                <a class="" href="{{ site.link }}/wat-we-doen/#onderwijs-ondersteuning">
+                    <div class="cta-block absolute mx-5 pin z-auto bg-yellow font-bold text-xl md:text-2xl lg:text-4xl">
+                        onderwijs<br>ondersteuning
+                    </div>
+                </a>
+            </div>
+            <div class="px-5 w-8/12 md:w-7/12 md:ml-3/12 ml-3/12 lg:w-5/12 h-24 md:h-32 lg:h-40 mb-10 lg:mb-12 lg:ml-auto lg:mr-1/12 relative">
+                <div class="cta-block-background absolute mx-5 pin z-auto bg-blue" style="background: url({{ theme.link }}/assets/Button_Software_structuur.png)"></div>
+                <a class="" href="{{ site.link }}/wat-we-doen/#software">
+                    <div class="cta-block absolute mx-5 pin z-auto bg-blue-light font-bold text-xl md:text-2xl lg:text-4xl">
+                        software
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="section relative">
+        <div class="row">
+            <div class="px-5 w-full">
+                <div class="fw-image bg-grey" style="background-image:url({{ TimberImage( page.meta('werkwijze_image')).src('large') }})"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section relative">
+        <div class="row">
+            <div class="px-5 w-10/12 lg:w-2/5 ml-1/12" style="background-image:url({{ theme.link }}/assets/Instagram_geel_blauw_stip.png); background-position: center; background-size: cover">
+                <div class="p-5 lg:px-0">
+                    <p class="text-xl -ml-5 lg:mx-auto md:text-3xl lg:text-4xl relative z-10" style="transform: translate(0, 0.35em); height: 0">
+                        {% include "components/highlight.twig" with {
+                            text : "Instagram",
+                            color: "yellow",
+                            background: "blue"
+                        } %}
+                    </p>
+                    {% include "components/instagram-slider.twig" with {
+                        slides: instagram
+                    } %}
+                </div>
+            </div>
+
+            <div class="px-5 w-10/12 md:w-8/12 mt-20 lg:mt-10 lg:mt-0 lg:w-4/12 ml-1/12 md:ml-2/12 -translate-y-80">
+                <div class="paralax-wrapper">
+                    <div class="block-outer paralax">
+                        <div class="block-inner portrait mobile-portrait">
+                            <div class="content bg-pink flex items-center justify-center" style="background-image: url({{theme.link}}/assets/Rechthoek_onze_werkwijze.png)">
+                                <a class="text-2xl md:text-3xl text-red font-bold border-red border-b" href="{{ site.link }}/over-ons">Onze werkwijze</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-4/12 lg:w-2/12 absolute pin-b pin-r" style="margin-bottom: -10%; margin-right: 5%;">
+            {% include "components/planet.twig" with {
+                image : "geel_blauw_streep"
+            } %}
+        </div>
+    </section>
+
+    <section class="hero section py-20 relative">
+        {% include "partials/hero.twig" with {
+            text : page.meta("quote_2"),
+            color: "red"
+        } %}
+
+        <div class="w-2/12 lg:w-1/12 absolute pin-b pin-l" style="margin-left: 5%;">
+            {% include "components/planet.twig" with {
+                image : "blauw_groen_vlek"
+            } %}
+        </div>
+    </section>
+
+    <section class="section relative">
+
+        <div class="hidden lg:block absolute pin-t pin-r z-40" style="width: 300px; margin-top: -5%; margin-right: -5%">
+            <div class="block-outer">
+                <div class="block-inner square mobile-square">
+                    <div class="content">
+                        <div class="planet rounded-full" style="background-image: url({{ theme.link }}/assets/planets/Bal_blauw_roze_vlek_oog.png)"></div>
+                        <div class="eye absolute h-6 w-6 rounded-full pin-t pin-l" style="margin-left: 65px; margin-top: 145px" data-width="40" data-height="20">
+                            <img src="{{ theme.link }}/assets/planets/oog_links.svg" alt="">
+                        </div>
+                        <div class="eye absolute h-6 w-6 rounded-full pin-t pin-l" style="margin-left: 175px; margin-top: 125px" data-width="40" data-height="30">
+                            <img src="{{ theme.link }}/assets/planets/oog_rechts.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "components/slider.twig" with {
+        slides : page.meta("project_slider"),
+        width: "",
+        height: "",
+        pagination: true,
+        color: {
+              text: color_text,
+              background: color_background
+            }
+    } %}
+</section>
+
+<section class="section relative">
+    <div class="row text-xl">
+        <div class="w-10/12 lg:w-5/12 ml-1/12 px-5">
+            {% set object = page.meta("project_blocks")[0].post %}
+            {% include "components/link-block.twig" with {
+                    orientation : "landscape",
+                    mobileOrientation : "landscape",
+                    thumbnail: TimberImage(object.meta('header').image).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+        </div>
+        <div class="w-10/12 lg:w-4/12 ml-1/12 mt-20 lg:mt-1/12 px-5">
+            {% set object = page.meta("project_blocks")[1].post %}
+            {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation : "landscape",
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+        </div>
+        <div class="w-10/12 lg:w-4/12 ml-1/12 lg:ml-2/12 mt-20 lg:mt-0 px-5">
+            {% set object = page.meta("project_blocks")[2].post %}
+            {% include "components/link-block.twig" with {
+                    orientation : "portrait",
+                    mobileOrientation : "landscape",
+                    thumbnail: TimberImage(object.meta('thumbnail')).src('large'),
+                    title: object.title,
+                    subtitle: object.meta('header').subtitle,
+                    category: object.category.slug,
+                    link: object.link
+                } %}
+        </div>
+
+    </div>
+
+    <div class="hidden lg:block w-2/12 absolute pin-b pin-r z-10" style="margin-bottom: 0; margin-right: 10%;">
+        {% include "components/planet.twig" with {
+            image : "bruin_geel_ster"
+        } %}
+    </div>
+</section>
+
+<section class="section relative">
+    <div class="row text-xl">
+        <div class="px-5 lg:ml-1/12 w-full lg:w-10/12">
+            <div class="block-outer">
+                <div class="block-inner landscape-footer mobile-landscape">
+                    <div class="content bg-blue text-red text-3xl font-bold flex justify-center" style="background-image: url({{ theme.link }}/assets/Balk_contact_blauw.png)">
+                        <div class="flex flex-col items-start justify-center">
+                            <p class="text-2xl md:text-4xl xl:text-5xl">
+                                {% include "components/highlight.twig" with {
+                                    text : page.meta("footer"),
+                                    color: "red",
+                                    background: "yellow"
+                                } %}
+                            </p>
+                            <p class="hover-up text-2xl md:text-4xl xl:text-5xl">
+                                <a class="text-red" href="mailto:hallo@beamitup.nl">
+                                    {% include "components/highlight.twig" with {
+                                        text : "hallo@beamitup.nl",
+                                        color: "red",
+                                        background: "yellow"
+                                    } %}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-3/12 lg:w-1/12 absolute pin-b pin-r" style="margin-right: 5%; margin-bottom: -20%">
+        {% include "components/planet.twig" with {
+            image : "paars_geel_vlek"
+        } %}
+    </div>
+</section>
+
+{% endblock %}

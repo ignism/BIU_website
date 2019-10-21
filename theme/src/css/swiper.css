@@ -1,0 +1,32 @@
+.swiper-container .swiper-pagination,
+.swiper-pagination {
+  @apply flex flex-wrap items-center justify-center;
+  height: 3rem;
+  position: relative;
+  &-bullets {
+    bottom: auto;
+  }
+  &-bullet {
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    margin: 0 4px;
+    &-active {
+      background: rgb(76, 180, 231);
+    }
+  }
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 40vh;
+  background-position: center;
+  background-size: cover;
+}
+
+@screen lg {
+  .swiper-slide {
+    width: 100%;
+    height: 50vw;
+    max-height: 800px;
+  }
+}

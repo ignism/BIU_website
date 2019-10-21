@@ -1,0 +1,24 @@
+
+
+<div class="{% if (slides|length > 1) %}swiper-container{% endif %} -mx-5 lg:mx-0">
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            <div class="swiper-slide bg-grey-light relative" style="background-image: url({{ TimberImage(slide.image).src }}); width: {{ width }}; height: {{ height }}">
+                <div class="slider-text text-xl md:text-4xl lg:text-5xl absolute pin-t pin-l ml-1/12 mt-3/12">
+                    <a {% if slide.link|isextern %}target="_blank"{% endif %} {% if (slide.link) %}href="{{ slide.link }}"{% endif %}>
+                        {% include "components/highlight.twig" with {
+                            text : slide.text,
+                            color: color.text,
+                            background: color.background
+                        } %}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if ((pagination == true) and (slides|length > 1)) %}
+        <div class="swiper-pagination"></div>
+    {% endif %}
+
+</div>

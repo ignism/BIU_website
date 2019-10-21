@@ -1,0 +1,52 @@
+<section class="section relative">
+
+    {% if content.decoration != "none" %}
+        
+        {% set ball = "geel_groen_stip" %}
+        {% if content.color == "#4CB4E7" %}
+            {% set ball = "blauw_geel_vlek" %}
+        {% elseif content.color == '#EE3724' %}
+            {% set ball = "rood_blauw_verf" %}
+        {% elseif content.color == '#1B2A75' %}
+            {% set ball = "blauw_roze_streep" %}
+        {% elseif content.color == '#BA8032' %}
+            {% set ball = "Bruin_rose_streep" %}
+        {% elseif content.color == '#FFB0BF' %}
+            {% set ball = "roze_rode_vlek" %}
+        {% elseif content.color == '#6C164E' %}
+            {% set ball = "paars_rozevlek" %}
+        {% endif %}
+
+        {% if content.decoration == 'sm' %}
+            <div class="hidden lg:block absolute pin-t pin-l w-1/12 ml-3/12 mt-1/12">
+                {% include "components/planet.twig" with {
+                    image: ball
+                } %}
+            </div>
+        {% elseif content.decoration == 'md' %}
+            <div class="hidden lg:block absolute pin-t pin-l w-2/12 ml-2/12 mt-1/12">
+                {% include "components/planet.twig" with {
+                    image: ball
+                } %}
+            </div>
+        {% elseif content.decoration == 'lg' %}
+            <div class="hidden lg:block absolute pin-t pin-l w-3/12 ml-10 mt-1/12">
+                {% include "components/planet.twig" with {
+                    image: ball
+                } %}
+            </div>
+        {% endif %}
+
+    {% endif %}
+
+
+<div class="row">
+
+    <div class="px-5 w-10/12 lg:w-5/12 ml-1/12 lg:ml-5/12">
+        <div class="lg:px-6">
+            {{ content.text }}
+        </div>
+    </div>
+
+</div>
+</section>

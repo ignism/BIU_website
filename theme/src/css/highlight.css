@@ -1,0 +1,30 @@
+.highlight-wrapper {
+  color: transparent;
+
+  .highlight {
+    height: 1em;
+    line-height: 1em;
+    letter-spacing: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+
+  &.active {
+    .highlight {
+      animation: clip 400ms forwards ease-in;
+    }
+  }
+}
+
+
+@keyframes clip {
+	0% {
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+	}
+	100% {
+		clip-path: polygon(0 0, 110% 0, 110% 100%, 0 100%);
+	}
+}
+
+@screen md {
+  letter-spacing: 0.025em;
+}

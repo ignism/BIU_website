@@ -1,0 +1,66 @@
+{% block html_head_container %}
+    {% include "header.twig" %}
+    {% block head %}{% endblock %}
+</head>
+{% endblock %}
+
+<body class="mt-32 overflow-x-hidden {{body_class}}" data-template="base.twig">
+
+{% block header %}
+
+    <nav class="nav beam-up md:px-10 lg:px-0 fixed z-70 pin-t w-full" role="navigation">
+        <div class="nav-wrapper w-full max-w-5xl mx-auto py-5 px-5 lg:px-0 relative">
+            <div class="-mx-5 h-12 flex flex-wrap justify-between items-end">
+                <div class="w-8/12 lg:ml-1/12 lg:w-3/12 px-5">
+                    {# <h1 class=""><a href="{{ site.link }}"></a></h1> #}
+                    <a class="logo-wrapper beam-up w-full flex items-end" href="{{ site.link }}">
+                        <img class="logo-beam block" src="{{ theme.link }}/assets/logo/beam.svg" alt="">
+                        <img class="logo-it-up block" src="{{ theme.link }}/assets/logo/it-up.svg" alt="">
+                    </a>
+                </div>
+                <div class="hidden lg:flex lg:w-7/12 items-end px-5 mr-1/12">
+                    {% include "components/menu.twig" with {
+                        "menu" : menu.get_items
+                    } %}
+                </div>
+                <div class="burger w-4/12 px-5 flex items-end flex-col lg:hidden">
+                    <span class="w-8 my-1"></span>
+                    <span class="w-8 my-1"></span>
+                    <span class="w-8 my-1"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu bg-black h-screen w-screen fixed lg:hidden pin-l z-60 px-5 md:px-10" style="background: url({{ theme.link }}/assets/Menu_galaxy.png); background-size: cover; background-position: center">
+        {% include "components/mobile-menu.twig" with {
+            "menu" : menu.get_items
+        } %}
+    </div>
+{% endblock %}
+
+<main class="max-w-5xl mx-auto">
+
+{% block content %}
+    Sorry, no content
+{% endblock %}
+
+</main>
+
+{% block footer %}
+    {{ function('wp_footer') }}
+{% endblock %}
+
+{% include "footer.twig" %}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1557453-21"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1557453-21');
+</script>
+</body>
+</html>

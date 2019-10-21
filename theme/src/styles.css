@@ -1,0 +1,234 @@
+/**
+* This injects Tailwind's base styles, which is a combination of
+* Normalize.css and some additional base styles.
+*
+* You can see the styles here:
+* https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/preflight";
+*/
+
+@tailwind preflight;
+/**
+* This injects any component classes registered by plugins.
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/components";
+*/
+
+@tailwind components;
+/**
+* Here you would add any of your custom component classes; stuff that you'd
+* want loaded *before* the utilities so that the utilities could still
+* override them.
+*
+* Example:
+*
+* .btn { ... }
+* .form-input { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "components/buttons";
+* @import "components/forms";
+*/
+
+/**
+* This injects all of Tailwind's utility classes, generated based on your
+* config file.
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/utilities";
+*/
+
+@tailwind utilities;
+/**
+* Here you would add any custom utilities you need that don't come out of the
+* box with Tailwind.
+*
+* Example :
+*
+* .bg-pattern-graph-paper { ... }
+* .skew-45 { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "utilities/background-patterns";
+* @import "utilities/skew-transforms";
+*/
+
+body {
+  @apply leading-tight;
+  color: black;
+  font-family: "basis-grotesque-medium";
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.font-bold {
+  font-family: "basis-grotesque-bold";
+  font-weight: 600 !important;
+}
+
+.font-medium {
+  font-family: "basis-grotesque-medium";
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1600px;
+}
+
+.section {
+  @apply w-full my-20 px-5;
+}
+
+.section.pull-up {
+  margin-top: -8rem;
+}
+
+@screen md {
+  .section {
+    @apply my-20 px-10;
+  }
+
+  .section.pull-up {
+    margin-top: -16rem;
+  }
+}
+
+@screen lg {
+  .section {
+    @apply my-24 px-0;
+  }
+}
+
+.row {
+  @apply flex flex-wrap -mx-5;
+}
+
+.paralax {
+  transition: transform 200 ease;
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 0;
+}
+
+.planet {
+  box-shadow: inset 0 8px 8px rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(100% at center);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  @apply text-sm;
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@screen md {
+  p {
+    @apply text-lg;
+  }
+}
+
+.hover-up {
+  transform: translate(0, 0);
+  transition: transform 200ms ease-in-out;
+  &:hover {
+    transform: translate(0, -5px);
+  }
+}
+
+.fw-image {
+  width: 100%;
+  height: 40vw;
+  max-height: 800px;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-caption {
+  &::before {
+    content: "__";
+    letter-spacing: -0.01em;
+    margin-right: 0.2em;
+  }
+}
+
+.quote {
+  &::before {
+    content: "“";
+  }
+  &::after {
+    content: "”";
+  }
+}
+
+@media (max-width: 1600px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@screen lg {
+  .-translate-y-80 {
+    transform: translate(0, -20rem);
+  }
+}
+
+.hero p br {
+  display: none;
+}
+
+@screen md {
+  .hero p br {
+    display: block;
+  }
+}
+
+.text-block-title {
+  transform: translate(0, 1em);
+}
+
+@screen lg {
+  .text-block-title {
+    transform: translate(0, 2.4rem);
+  }
+}
+
+
+.text-layout {
+  margin-top: 0;
+  margin-bottom: 0;
+  @apply text-sm;
+}
+
+@screen md {
+  .text-layout {
+    @apply text-lg;
+  }
+}
+
+.text-layout h1, h2, h3, h4, h5, h6 {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+  font-family: "basis-grotesque-bold";
+  font-weight: 600 !important;
+}

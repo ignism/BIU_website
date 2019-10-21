@@ -1,0 +1,19 @@
+{% include "components/block.twig" with {
+    orientation : "square",
+    color: color
+} %}
+<div class="pt-5 pb-3 leading-tight text-lg md:text-2xl lg:text-3xl">
+    <span class="text-blue">{{ name }}</span><br>
+    {{ role }}
+</div>
+{% if contact %}
+    <div clas="pb-12">
+        <a class="text-lg md:text-xl lg:text-2xl underline mt-6" href="mailto:{{ contact }}">
+            neem contact<br>
+            op met
+            {{ name|split(' ')[0]}}
+        </a>
+    </div>
+{% else %}
+    <div class="pb-6"></div>
+{% endif %}

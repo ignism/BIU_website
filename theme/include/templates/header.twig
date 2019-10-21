@@ -1,0 +1,45 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" {{ site.language_attributes }}>
+    <!--<![endif]-->
+    <head>
+        <meta charset="{{ site.charset }}"/>
+        <title>
+            {% if wp_title %}
+                {{ wp_title }}
+                -
+                {{ site.name }}
+            {% else %}
+                {{ site.name }}
+            {% endif %}
+        </title>
+        
+        <meta name="description" content="{{ site.description }}">
+        <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="author" href="{{ site.theme.link }}/humans.txt"/>
+        <link rel="pingback" href="{{ site.pingback_url }}"/>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.link }}/assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ theme.link }}/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ theme.link }}/assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="{{ theme.link }}/assets/favicon/site.webmanifest">
+        <link rel="mask-icon" href="{{ theme.link }}/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="{{ theme.link }}/assets/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="{{ theme.link }}/assets/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta property="og:image:height" content="312">
+        <meta property="og:image:width" content="596">
+        <meta property="og:description" content="BEAM IT UP, een initiatief van Robbert Storm en Liselotte de Groot, ontwikkelt videoworkshops en -projecten voor kinderen en jongeren, waarin we fantasie, technologie, samenwerking, creativiteit en innovatie combineren. Onze verrassende benadering van (kunst)educatie draagt bij aan de creatieve ontwikkeling van kinderen, die ook direct resultaat zien van hun inspanningen, maar de workshops passen ook in verschillende leerdoelen die gesteld zijn voor 't basis- en voortgezet onderwijs. ">
+        <meta property="og:title" content="Beam it Up">
+        <meta property="og:url" content="http://beamitup.nl">
+        <meta property="og:image" content="{{ theme.link }}/assets/logo/og-image.jpg">
+
+        {{function('wp_head')}}

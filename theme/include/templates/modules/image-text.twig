@@ -1,0 +1,23 @@
+<section class="section relative">
+    {% if content.decoration != 'none' %}
+        <div class="hidden lg:block absolute -z-10 pin-l pin-t w-5/12" style="margin-top: -25%">
+            {% set paralax = theme.link ~ '/assets/paralax/Knipsels_blauw.png' %}
+
+            {% if content.decoration == 'splash' %}
+                {% set paralax = theme.link ~ '/assets/paralax/Strooi_bal_blauw.png' %}
+            {% endif %}
+
+            <img class="w-full block" src="{{ paralax }}" alt="">
+        </div>
+    {% endif %}
+    <div class="row">
+
+        <div class="w-full lg:w-5/12 lg:ml-1/12 px-5 mb-10">
+            <img class="block w-full" src="{{ TimberImage(content.image).src('large') }}" alt="">
+        </div>
+        <div class="w-10/12 lg:w-4/12 ml-1/12 px-5">
+            <span class="text-red text-xl md:text-3xl xl:text-4xl image-caption leading-tight">{{ content.text }}</span>
+        </div>
+
+    </div>
+</section>

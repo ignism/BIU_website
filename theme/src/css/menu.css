@@ -1,0 +1,114 @@
+.logo-wrapper {
+  position: relative;
+  max-width: 200px;
+  transition: opacity 400ms ease-out;
+  opacity: 1;
+
+  .logo-beam {
+    position: absolute;
+    left: 0;
+    width: 120px;
+    transform-origin: left;
+    transition: transform 400ms ease-in;
+  }
+
+  .logo-it-up {
+    position: absolute;
+    left: 0;
+    margin-left: 128px;
+    width: 100px;
+    transition: margin 600ms ease-out;
+  }
+
+  &.beam-up {
+    .logo-beam {
+      transform: rotate(-40deg);
+      transition: transform 400ms ease-out;
+    }
+
+    .logo-it-up {
+      margin-left: 25%;
+    }
+  }
+
+}
+
+
+
+.nav {
+  transition: top 400ms ease, padding-top 400ms ease-out;
+  background: white;
+  .nav-wrapper {
+    background: white;
+  }
+
+  &.active {
+    background: transparent;
+    .nav-wrapper {
+    background: transparent;
+  }
+    .logo-wrapper {
+      opacity: 0;
+    }
+  }
+  &.hide {
+    top: -6rem;
+  }
+
+  &.beam-up {
+    padding-top: 40px
+  }
+}
+
+.logged-in .nav {
+  margin-top: 32px;
+}
+
+.menu-item {
+  text-transform: lowercase;
+  border-bottom: 2px solid transparent;
+
+  &.active {
+    border-bottom: 2px solid black;
+  }
+
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+}
+
+.burger {
+  span {
+    border-top: 4px solid black;
+    transition: transform 400ms ease, border 400ms ease;
+  }
+
+  &.active {
+    span {
+      border-color: white;
+      transform-origin: center;
+    
+      &:first-child {
+        transform: translate(0, 0.75rem) rotate(45deg)
+      }
+      &:last-child {
+        transform: translate(0, -0.75rem) rotate(-45deg)
+      }
+      &:not(:first-child):not(:last-child) {
+        transform: rotateY(90deg);
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  top: -100%;
+  opacity: 0;
+  transition: top 400ms ease, opacity 400ms ease;
+
+  
+  &.active {
+    top:0;
+    opacity: 1;
+  }
+}

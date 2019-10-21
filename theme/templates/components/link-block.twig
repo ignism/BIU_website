@@ -1,0 +1,26 @@
+{% set color = "green" %}
+{% if category == "educatieve_programmas" %}
+    {% set color = "purple" %}
+{% elseif category == "onderwijsondersteuning" %}
+    {% set color = "brown" %}
+{% elseif category == "software" %}
+    {% set color = "blue" %}
+{% endif %}
+
+<div class="w-full hover-up">
+<a href="{{ link }}">
+    {% include "components/block.twig" with {
+        orientation : orientation,
+        mobileOrientation : mobileOrientation,
+        image: thumbnail,
+        color: "grey"
+    } %}
+    <div class="text-base md:text-xl xl:text-2xl font-medium text-{{ color }} mt-4 mb-1">
+        {{ subtitle }}
+    </div>
+    <div class="flex flex-wrap font-medium justify-between items-end">
+        <span class="text-base md:text-xl xl:text-2xl" style="max-width: calc(100% - 2em)">{{ title }}</span>
+        <img class="text-sm md:text-xl xl:text-2xl" src="{{ theme.link }}/assets/arrow.svg" style="width: 1em; height: 1em; margin-bottom: 7px">
+    </div>
+</a>
+</div>
