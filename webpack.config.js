@@ -11,7 +11,8 @@ module.exports = (env, options) => {
 
   return ({
     entry: { 
-      bundle: './theme/src/index.js'
+      bundle: './theme/src/index.js',
+      fonts: './theme/src/fonts.js'
     },
     output: {
       path: path.resolve(__dirname, 'server/wp-content/themes', 'beamitup/dist'),

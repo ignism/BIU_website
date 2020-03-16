@@ -61,7 +61,7 @@
 * @import "utilities/skew-transforms";
 */
 
-body {
+/* body {
   @apply leading-tight;
   color: black;
   font-family: "basis-grotesque-medium";
@@ -77,7 +77,7 @@ body {
 .font-medium {
   font-family: "basis-grotesque-medium";
   font-weight: 500;
-}
+} */
 
 .container {
   max-width: 1600px;

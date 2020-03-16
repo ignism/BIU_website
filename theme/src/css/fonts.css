@@ -1,0 +1,17 @@
+body {
+  @apply leading-tight;
+  color: black;
+  font-family: "basis-grotesque-medium";
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.font-bold {
+  font-family: "basis-grotesque-bold";
+  font-weight: 600 !important;
+}
+
+.font-medium {
+  font-family: "basis-grotesque-medium";
+  font-weight: 500;
+}
