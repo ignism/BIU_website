@@ -7,7 +7,8 @@
     "watch": "webpack --mode=development --watch",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "rsync": "rsync -r -v --exclude-from=.rsyncexclude \"$(npx json -f './config/rsync.json' 'source')\" \"$(npx json -f './config/rsync.json' 'target')\"",
+    "rsync": "rsync -r -v --exclude-from=./config/.rsyncexclude \"$(npx json -f './config/rsync.json' 'source')\" \"$(npx json -f './config/rsync.json' 'target')\"",
+    "copy": "cp -r \"$(npx json -f './config/rsync.json' 'source')\" \"$(npx json -f './config/rsync.json' 'target')\"",
     "serve": "docker kill $(docker ps -q); docker-compose up -d",
     "stop": "docker-compose down --volumes"
   },
